@@ -12,4 +12,4 @@
   - Robust PCA
   - Probabilistic PCA
   - Non-negative Matrix Factorization(非负矩阵分解)
-- [**许可协议**](/LICENSE.md)
+- [**许可协议**](/LICENSE)
