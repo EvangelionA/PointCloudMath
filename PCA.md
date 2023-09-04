@@ -59,6 +59,18 @@
    {\displaystyle {\begin{aligned}{\boldsymbol {Y}}^{\top }&={\boldsymbol {X}}^{\top }{\boldsymbol {W}}\\&={\boldsymbol {V}}{\boldsymbol {\Sigma }}^{\top }{\boldsymbol {W}}^{\top }{\boldsymbol {W}}\\&={\boldsymbol {V}}{\boldsymbol {\Sigma }}^{\top }\end{aligned}}}
    $$
 
+当m < n − 1时，$V$在通常情况下不是唯一定义的，而$Y$则是唯一定义的。$W$是一个正交矩阵，$Y^{T}W^{T} = X^{T}$，且$Y^{T}$的第一列由第一主成分组成，第二列由第二主成分组成，依此类推。
+
+为了得到一种降低数据维度的有效办法，我们可以利用$W_L$把$X$映射到一个只应用前面$L$个向量的低维空间中去：
+$$
+\mathbf{Y}=\mathbf{W_L}^\top\mathbf{X} = \mathbf{\Sigma_L}\mathbf{V}^\top
+$$
+其中$\mathbf{\Sigma_L}=\mathbf{I}_{L\times m}\mathbf{\Sigma}$，且$I_L\times m$为$L \times M$的单位矩阵。
+
+$X$的单向量矩阵$W$相当于协方差矩阵的特征向量$C = XX^{T}$,
+$$
+\mathbf{X}\mathbf{X}^\top = \mathbf{W}\mathbf{\Sigma}\mathbf{\Sigma}^\top\mathbf{W}^\top
+$$
 
 
 
