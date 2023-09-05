@@ -51,26 +51,30 @@
 ## 数学定义
 &emsp;&emsp;PCA主要是通过对<u>协方差矩阵</u>进行特征分解，得出数据的主成分（即<u>特征向量</u>）与它们的权值（即<u>特征值</u>）。
 
+<<<<<<< HEAD
 &emsp;&emsp;定义一个 *n*$\times$*m*的矩阵， $X^{\top}$ 为去平均值（以平均值为中心移动至原点）的数据，其行为数据样本，列为数据类别。（注意，这里定义的是 $X^{\top}$ ，而不是 $X$ ）。则 $X$ 的奇异值分解为$X$ = $W \Sigma V^{\top}$，其中${\displaystyle W\in \mathbf {R} ^{m\times m}}$是$XX^{\top}$的特征向量矩阵，$\Sigma \in R^{m\times n}$是奇异值矩阵，$V \in R^{n\times n}$是$X^{\top}X$的特征向量矩阵。
+=======
+&emsp;&emsp;定义一个 *n* $\times$ *m*的矩阵， $X^{T}$ 为去平均值（以平均值为中心移动至原点）的数据，其行为数据样本，列为数据类别。（注意，这里定义的是 $X^{T}$ ，而不是 $X$ ）。则 $X$ 的奇异值分解为 $X$  =  $W \Sigma V^{T}$ ，其中 ${\displaystyle W\in \mathbf {R} ^{m\times m}}$ 是 $XX^{T}$ 的特征向量矩阵， $\Sigma \in R^{m\times n}$ 是奇异值矩阵， $V \in R^{n\times n}$ 是 $X^{T}X$ 的特征向量矩阵。
+>>>>>>> dev
 
 据此，
 
-   $$
+  $$ 
    {\displaystyle {\begin{aligned}{\boldsymbol {Y}}^{\top }&={\boldsymbol {X}}^{\top }{\boldsymbol {W}}\\&={\boldsymbol {V}}{\boldsymbol {\Sigma }}^{\top }{\boldsymbol {W}}^{\top }{\boldsymbol {W}}\\&={\boldsymbol {V}}{\boldsymbol {\Sigma }}^{\top }\end{aligned}}}
-   $$
+  $$ 
 
-当m < n − 1时，$V$在通常情况下不是唯一定义的，而$Y$则是唯一定义的。$W$是一个正交矩阵，$Y^{T}W^{T} = X^{T}$，且$Y^{T}$的第一列由第一主成分组成，第二列由第二主成分组成，依此类推。
+当m < n − 1时， $V$ 在通常情况下不是唯一定义的，而 $Y$ 则是唯一定义的。 $W$ 是一个正交矩阵， $Y^{\top}W^{\top} = X^{T}$ ，且 $Y^{T}$ 的第一列由第一主成分组成，第二列由第二主成分组成，依此类推。
 
-为了得到一种降低数据维度的有效办法，我们可以利用$W_L$把$X$映射到一个只应用前面$L$个向量的低维空间中去：
-$$
-\mathbf{Y}=\mathbf{W_L}^\top\mathbf{X} = \mathbf{\Sigma_L}\mathbf{V}^\top
-$$
-其中$\mathbf{\Sigma_L}=\mathbf{I}_{L\times m}\mathbf{\Sigma}$，且$I_L\times m$为$L \times M$的单位矩阵。
+为了得到一种降低数据维度的有效办法，我们可以利用 $W_L$ 把 $X$ 映射到一个只应用前面 $L$ 个向量的低维空间中去：
+  $$ 
+  \mathbf{Y}=\mathbf{W_L}^\top\mathbf{X} = \mathbf{\Sigma_L}\mathbf{V}^\top
+  $$ 
+其中 $\mathbf{\Sigma_L}=\mathbf{I}_{L\times m}\mathbf{\Sigma}$ ，且 $I_L\times m$ 为 $L \times M$ 的单位矩阵。
 
-$X$的单向量矩阵$W$相当于协方差矩阵的特征向量$C = XX^{T}$,
-$$
+ $X$ 的单向量矩阵 $W$ 相当于协方差矩阵的特征向量 $C = XX^{T}$ ,
+$$ 
 \mathbf{X}\mathbf{X}^\top = \mathbf{W}\mathbf{\Sigma}\mathbf{\Sigma}^\top\mathbf{W}^\top
-$$
+$$ 
 
 
 &emsp;&emsp;PCA是最简单的以特征量分析多元统计分布的方法。其结果可以理解为对原数据中的方差做出解释：哪一个方向上的数据值对方差的影响最大？换而言之，PCA提供了一种降低数据维度的有效办法；如果分析者在原数据中除掉最小的特征值所对应的成分，那么所得的低维度数据必定是最优化的（也即，这样降低维度必定是失去信息最少的方法）
