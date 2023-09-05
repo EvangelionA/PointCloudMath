@@ -4,7 +4,7 @@
 
 
 ## 目录 
-- [PCA](/PCA.md)
+- [PCA](./PCA/PCA.md)
   - PCA
   - Kernel PCA(核主成分分析)
   - Incremental PCA
