@@ -51,7 +51,7 @@
 ## 数学定义
 &emsp;&emsp;PCA主要是通过对<u>协方差矩阵</u>进行特征分解，得出数据的主成分（即<u>特征向量</u>）与它们的权值（即<u>特征值</u>）。
 
-&emsp;&emsp;定义一个 *n*$\times$*m*的矩阵， $X^{\top}$ 为去平均值（以平均值为中心移动至原点）的数据，其行为数据样本，列为数据类别。（注意，这里定义的是$X^{\top}$，而不是$X$）。则$X$的奇异值分解为$X$ = $W \Sigma V^{\top}$，其中${\displaystyle W\in \mathbf {R} ^{m\times m}}$是$XX^{\top}$的特征向量矩阵，$\Sigma \in R^{m\times n}$是奇异值矩阵，$V \in R^{n\times n}$是$X^{\top}X$的特征向量矩阵。
+&emsp;&emsp;定义一个 *n*$\times$*m*的矩阵， $X^{\top}$ 为去平均值（以平均值为中心移动至原点）的数据，其行为数据样本，列为数据类别。（注意，这里定义的是 $X^{\top}$ ，而不是 $X$ ）。则 $X$ 的奇异值分解为$X$ = $W \Sigma V^{\top}$，其中${\displaystyle W\in \mathbf {R} ^{m\times m}}$是$XX^{\top}$的特征向量矩阵，$\Sigma \in R^{m\times n}$是奇异值矩阵，$V \in R^{n\times n}$是$X^{\top}X$的特征向量矩阵。
 
 据此，
 
