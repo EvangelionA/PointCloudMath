@@ -9,9 +9,14 @@
 - 2023年8月24日
 
   初次撰写定有过多遗漏，多多包涵
+
 - 2023年9月4日
   
   第二次撰写：对数学公式进行添加
+
+- 2023年9月23日
+
+  第三次撰写：对修订一些MD语法错误，增添PCA部分内容
 
 ## 目录
 
@@ -19,7 +24,8 @@
   - [PCA](#pca-1)
     - [基础](#基础)
     - [基本思想](#基本思想)
-  - [数学定义](#数学定义)
+    - [数学定义](#数学定义)
+    - [点云中的PCA](#点云中的pca)
   - [Kernel PCA(核主成分分析)](#kernel-pca核主成分分析)
   - [Incremental PCA](#incremental-pca)
 - [Sparse PCA(稀疏主成分分析)](#sparse-pca稀疏主成分分析)
@@ -54,9 +60,9 @@
 
 以此类推，找到第三主成分，第四主成分……第p个主成分。p个随机变量可以有p个主成分。
 
-## 数学定义
+### 数学定义
 
-&emsp;&emsp;PCA主要是通过对<u>协方差矩阵</u>进行特征分解，得出数据的主成分（即<u>特征向量</u>）与它们的权值（即<u>特征值</u>）。
+&emsp;&emsp;PCA主要是通过对协方差矩阵进行特征分解，得出数据的主成分（即**特征向量**）与它们的权值（即**特征值**）。
 
 &emsp;&emsp;定义一个 $n \times m$ 的矩阵， $X^T$ 去平均值（以平均值为中心移动至原点）的数据，其行为数据样本，列为数据类别（注意，这里定义的是 $X^T$ ，而不是 $X$ ）。则 $X$ 的奇异值分解为 $X = W \Sigma V^{T}$ ，其中 $W \in R^{m \times m}$ 是 $XX^{T}$ 的特征向量矩阵， $\Sigma \in R^{m\times n}$ 是奇异值矩阵， $V \in R^{n\times n}$ 是 $X^{T}X$ 的特征向量矩阵。
 
@@ -73,6 +79,24 @@
 $$XX^T = W \Sigma \Sigma ^T W^T$$
 
 &emsp;&emsp;PCA是最简单的以特征量分析多元统计分布的方法。其结果可以理解为对原数据中的方差做出解释：哪一个方向上的数据值对方差的影响最大？换而言之，PCA提供了一种降低数据维度的有效办法；如果分析者在原数据中除掉最小的特征值所对应的成分，那么所得的低维度数据必定是最优化的（也即，这样降低维度必定是失去信息最少的方法）
+
+### 点云中的PCA
+&emsp;&emsp;PCA在点云中的应用，主要是为了提取点云中的关键特征，特别是 **线(1D)** 、 **面(2D)** 和 **体(3D)** 特征。
+
+&emsp;&emsp;[《3D Terrestrial lidar data classification of complex natural
+scenes using a multi-scale dimensionality criterion:
+applications in geomorphology》](http://arxiv.org/abs/1107.0550)
+
+&emsp;&emsp;该文章通过对不同尺度下的局部点云进行PCA求解，从而得到不同尺度下的局部点云主成分，根据主成分对不同维度特征（1D、2D、3D）的权重进行评估，后续通过LDA线性分类器，实现对点云分类。
+
+![局部点云](./PCAimg/Neighborhood%20ball%20at%20different%20scales.jpg)
+局部点云
+
+![PCA各个维度特征](./PCAimg/Local%20neighborhood%20PCA.jpg)
+PCA各个维度特征
+
+![不同尺度下PCA特征](./PCAimg/Different%20scals%20PCA.jpg)
+不同尺度下PCA特征
 
 ## Kernel PCA(核主成分分析)
 
