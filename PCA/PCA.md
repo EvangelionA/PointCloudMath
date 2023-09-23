@@ -62,11 +62,9 @@
 
 据此，
   $$
-    \begin{align*}
-    Y^T &= X^TW \\
-    &= V\Sigma^T W^T W \\
-    &= V\Sigma^T
-    \end{align*}
+    Y^T = X^TW \\
+    = V\Sigma^T W^T W \\
+    = V\Sigma^T
   $$
 
 
