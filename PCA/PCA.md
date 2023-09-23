@@ -58,13 +58,17 @@
 
 &emsp;&emsp;PCA主要是通过对<u>协方差矩阵</u>进行特征分解，得出数据的主成分（即<u>特征向量</u>）与它们的权值（即<u>特征值</u>）。
 
-&emsp;&emsp;定义一个 *n* $\times$ *m*的矩阵， $X^{T}$ 为去平均值（以平均值为中心移动至原点）的数据，其行为数据样本，列为数据类别。（注意，这里定义的是 $X^{T}$ ，而不是 $X$ ）。则 $X$ 的奇异值分解为 $X$  =  $W \Sigma V^{T}$ ，其中 ${\displaystyle W\in \mathbf {R} ^{m\times m}}$ 是 $XX^{T}$ 的特征向量矩阵， $\Sigma \in R^{m\times n}$ 是奇异值矩阵， $V \in R^{n\times n}$ 是 $X^{T}X$ 的特征向量矩阵。
+&emsp;&emsp;定义一个 *n* $\times$ *m*的矩阵， $X^{T}$ 为去平均值（以平均值为中心移动至原点）的数据，其行为数据样本，列为数据类别。（注意，这里定义的是 $X^{T}$ ，而不是 $X$ ）。则 $X$ 的奇异值分解为 $X$  =  $W \Sigma V^{T}$ ，其中 $W \in  R^{m\times m}$ 是 $XX^{T}$ 的特征向量矩阵， $\Sigma \in R^{m\times n}$ 是奇异值矩阵， $V \in R^{n\times n}$ 是 $X^{T}X$ 的特征向量矩阵。
 
 据此，
+  $$
+    \begin{align*}
+    Y^T &= X^TW \\
+    &= V\Sigma^T W^T W \\
+    &= V\Sigma^T
+    \end{align*}
+  $$
 
-  $$
-   {\displaystyle {\begin{aligned}{\boldsymbol {Y}}^{\top }&={\boldsymbol {X}}^{\top }{\boldsymbol {W}}\\&={\boldsymbol {V}}{\boldsymbol {\Sigma }}^{\top }{\boldsymbol {W}}^{\top }{\boldsymbol {W}}\\&={\boldsymbol {V}}{\boldsymbol {\Sigma }}^{\top }\end{aligned}}}
-  $$
 
 当m < n − 1时， $V$ 在通常情况下不是唯一定义的，而 $Y$ 则是唯一定义的。 $W$ 是一个正交矩阵， $Y^{\top}W^{\top} = X^{T}$ ，且 $Y^{T}$ 的第一列由第一主成分组成，第二列由第二主成分组成，依此类推。
 
